@@ -16,10 +16,12 @@ def get_gemini_repsonse(input):
 
 def input_pdf_text(uploaded_file):
     reader=pdf.PdfReader(uploaded_file)
+    print(len(reader.pages))
+    print(reader.pages[0])
     text=""
-    for page in range(len(reader.pages)):
+    for page in (len(reader.pages)):
         page=reader.pages[page]
-        text+=str(page.extract_text())
+        text+=str(page.extract_text()) if page.extract_text() else ""
     return text
 
 input_prompt="""
